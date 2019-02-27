@@ -33,8 +33,9 @@
 @property (nonatomic, assign) BOOL reactAttributionEnabled;
 @property (nonatomic, assign) BOOL reactLogoEnabled;
 @property (nonatomic, assign) BOOL reactCompassEnabled;
-@property (nonatomic, assign) BOOL reactShowUserLocation;
 @property (nonatomic, assign) BOOL reactZoomEnabled;
+@property (nonatomic, assign) BOOL reactShowUserLocation;
+@property (nonatomic, copy) id reactUserLocationColor;
 
 @property (nonatomic, copy) NSString *reactCenterCoordinate;
 @property (nonatomic, copy) NSString *reactStyleURL;

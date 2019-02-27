@@ -5,6 +5,7 @@ import {
   StyleSheet,
   NativeModules,
   requireNativeComponent,
+  processColor,
 } from 'react-native';
 import { makePoint, makeLatLngBounds } from '../utils/geoUtils';
 
@@ -52,6 +53,11 @@ class MapView extends React.Component {
      * Shows the users location on the map
      */
     showUserLocation: PropTypes.bool,
+
+    /**
+     * User location color
+     */
+    userLocationColor: PropTypes.string,
 
     /**
      * The mode used to track the user location on the map
@@ -794,6 +800,13 @@ class MapView extends React.Component {
     return this.props.contentInset;
   }
 
+  _getUserLocationColor() {
+    if (!this.props.userLocationColor) {
+      return;
+    }
+    return processColor(this.props.userLocationColor);
+  }
+
   async _setNativeRef(nativeRef) {
     this._nativeRef = nativeRef;
 
@@ -815,6 +828,7 @@ class MapView extends React.Component {
       ...this.props,
       centerCoordinate: this._getCenterCoordinate(),
       contentInset: this._getContentInset(),
+      userLocationColor: this._getUserLocationColor(),
       style: styles.matchParent,
     };
 

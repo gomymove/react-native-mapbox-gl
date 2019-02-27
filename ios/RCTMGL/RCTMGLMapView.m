@@ -157,6 +157,12 @@ static double const M2PI = M_PI * 2;
     self.showsUserLocation = _reactShowUserLocation;
 }
 
+- (void)setReactUserLocationColor:(id)reactUserLocationColor
+{
+    _reactUserLocationColor = reactUserLocationColor;
+    self.tintColor = [RCTMGLUtils toColor:_reactUserLocationColor];
+}
+
 - (void)setReactCenterCoordinate:(NSString *)reactCenterCoordinate
 {
     _reactCenterCoordinate = reactCenterCoordinate;
